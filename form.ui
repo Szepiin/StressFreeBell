@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>BlankCursor</cursorShape>
+  </property>
+  <property name="tabletTracking">
+   <bool>true</bool>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow, QWidget {
+    background-color: #2b2b2b; /* Tło ciemnoszare */
+    color: #ffffff; /* Kolor tekstu biały */
+}
+
+QPushButton {
+    background-color: #3158de; /* Ciemnoszare tło */
+    color: #ffffff; /* Biały tekst */
+    border: 1px solid #3158b3; /* Szara ramka */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    padding: 5px; /* Wewnętrzne odstępy */
+}
+</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="cursor">
+    <cursorShape>BlankCursor</cursorShape>
+   </property>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>70</y>
+      <width>800</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QMainWindow, QWidget {
+    background-color: #1f1f1f; /* Tło ciemnoszare */
+    color: #ffffff; /* Kolor tekstu biały */
+}
+QPushButton {
+    background-color: #3158de; /* Ciemnoszare tło */
+    color: #ffffff; /* Biały tekst */
+    border: 1px solid #3158b3; /* Szara ramka */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    padding: 5px; /* Wewnętrzne odstępy */
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="Main">
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+    color: #ffffff; /* Biały tekst */
+    background-color: #252525;
+    border: 1px solid #454545; /* Szara ramka */
+    border-radius: 5px; /* Zaokrąglone rogi */
+}</string>
+     </property>
+     <widget class="QLabel" name="lblNextOccurence">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>5</y>
+        <width>781</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LayoutDirection::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="text">
+       <string>Brak następnego wystąpienia</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::AutoText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listOccurencesR">
+      <property name="geometry">
+       <rect>
+        <x>405</x>
+        <y>50</y>
+        <width>386</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>13</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>BlankCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::Box</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+      </property>
+      <property name="itemAlignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listOccurencesL">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>386</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>13</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>BlankCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::Box</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+      </property>
+      <property name="itemAlignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Schedule">
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+    color: #ffffff; /* Biały tekst */
+    background-color: #252525;
+    border: 1px solid #454545; /* Szara ramka */
+    border-radius: 5px; /* Zaokrąglone rogi */
+}
+QLabel{
+    background-color: #252525;
+    border: 1px solid #454545; /* Szara ramka */
+    border-radius: 10px; /* Zaokrąglone rogi */
+}</string>
+     </property>
+     <widget class="QLabel" name="lblScheduleIndex">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>5</y>
+        <width>800</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LayoutDirection::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="text">
+       <string>Dzwonek</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::AutoText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frameBellIndex">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>340</y>
+        <width>800</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="btnPrev">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>190</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Poprzedni</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnNext">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>10</y>
+         <width>190</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Następny</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>50</y>
+        <width>210</width>
+        <height>286</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="btnSaveChanges">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>190</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Zapisz zmiany</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <widget class="QPushButton" name="btnAdd">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>190</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Dodaj dzwonek</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+      <widget class="QPushButton" name="btnDelete">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>190</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Usuń dzwonek</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>586</width>
+        <height>286</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton {
+	background-color: rgb(55,55,55);
+    color: #ffffff; /* Biały tekst */
+    border: 4px solid #3158de;; /* Szara ramka */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    padding: 0px; /* Wewnętrzne odstępy */
+}
+QLabel{
+ border: 0px solid #3158b3; /* Szara ramka */
+ background: #303030;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <widget class="QFrame" name="frameHour">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>5</y>
+         <width>391</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QSpinBox
+{
+    border: 3px solid #3158de;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px; 
+	background: #303030;
+}
+
+QSpinBox::up-button
+{
+    width:40px;
+    height: 40px;
+
+}
+
+QSpinBox::down-button
+{
+    width:40px;
+    height: 40px;
+}
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <widget class="QLabel" name="lblHour">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>91</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+ border: 0px solid #3158b3; /* Szara ramka */
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>Godzina:</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblMinute">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>50</y>
+          <width>91</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+ border: 0px solid #3158b3; /* Szara ramka */
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>Minuta:</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="sboxHour">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>181</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::FocusPolicy::NoFocus</enum>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="wrapping">
+         <bool>false</bool>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
+        </property>
+        <property name="keyboardTracking">
+         <bool>false</bool>
+        </property>
+        <property name="showGroupSeparator" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="maximum">
+         <number>23</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="sboxMinute">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>10</y>
+          <width>181</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="wrapping">
+         <bool>false</bool>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
+        </property>
+        <property name="keyboardTracking">
+         <bool>false</bool>
+        </property>
+        <property name="showGroupSeparator" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="maximum">
+         <number>59</number>
+        </property>
+       </widget>
+       <zorder>sboxHour</zorder>
+       <zorder>sboxMinute</zorder>
+       <zorder>lblMinute</zorder>
+       <zorder>lblHour</zorder>
+      </widget>
+      <widget class="QFrame" name="frameActive">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>5</y>
+         <width>181</width>
+         <height>276</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <widget class="QLabel" name="lblActive">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>110</y>
+          <width>101</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+ border: 0px solid #3158b3; /* Szara ramka */
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>Aktywny</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="btnActive">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::FocusPolicy::NoFocus</enum>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolButton {
+	background-color: rgb(25, 25, 25);
+    border: 4px solid #3158de;; /* Szara ramka */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    padding: 5px; /* Wewnętrzne odstępy */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>X</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frameInterval">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>150</y>
+         <width>391</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <widget class="QLabel" name="lblInterval">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>261</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>Interwał między dzwonkiem 
+ a przeddzwonkiem:</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="sboxInterval">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>371</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>BlankCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::FocusPolicy::NoFocus</enum>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QDoubleSpinBox
+{
+    border: 3px solid #3158de;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 5px; 
+	background: #303030;
+}
+
+QDoubleSpinBox::up-button
+{
+    width:40px;
+    height: 40px;
+
+}
+
+QDoubleSpinBox::down-button
+{
+    width:40px;
+    height: 40px;
+}
+</string>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
+        </property>
+        <property name="keyboardTracking">
+         <bool>false</bool>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.500000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.500000000000000</double>
+        </property>
+       </widget>
+       <zorder>sboxInterval</zorder>
+       <zorder>lblInterval</zorder>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Settings">
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>270</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>settings</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnNext_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>190</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Tryb weekendowy</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Clock">
+     <property name="layoutDirection">
+      <enum>Qt::LayoutDirection::LeftToRight</enum>
+     </property>
+     <widget class="QLabel" name="lblClock">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>801</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>100</pointsize>
+        <stylestrategy>PreferDefault</stylestrategy>
+        <hintingpreference>PreferDefaultHinting</hintingpreference>
+        <fontweight>Medium</fontweight>
+       </font>
+      </property>
+      <property name="text">
+       <string>00:00</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnPlusHour_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>50</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>BlankCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnPlusHour_3">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>240</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>BlankCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnPlusHour_4">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>50</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>BlankCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="popupMode">
+       <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+      </property>
+      <property name="toolButtonStyle">
+       <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
+      </property>
+      <property name="autoRaise">
+       <bool>false</bool>
+      </property>
+      <property name="arrowType">
+       <enum>Qt::ArrowType::NoArrow</enum>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnPlusHour_5">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>240</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>BlankCursor</cursorShape>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::FocusPolicy::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnClock_2">
+      <property name="geometry">
+       <rect>
+        <x>305</x>
+        <y>350</y>
+        <width>190</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Zapisz</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>781</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnMain">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Ekran główny</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">gbtnScreens</string>
+       </attribute>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSchedule">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Harmonogram</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">gbtnScreens</string>
+       </attribute>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSettings">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Ustawienia</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">gbtnScreens</string>
+       </attribute>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClock">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Zegar</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">gbtnScreens</string>
+       </attribute>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>gbtnScreens</sender>
+   <signal>idClicked(int)</signal>
+   <receiver>stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>changePage(int)</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="gbtnScreens"/>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
