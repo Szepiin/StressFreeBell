@@ -16,10 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication, QButtonGroup,
-    QDoubleSpinBox, QFrame, QHBoxLayout, QLabel,
-    QLayout, QListWidget, QListWidgetItem, QMainWindow,
-    QPushButton, QSizePolicy, QSpinBox, QStackedWidget,
-    QToolButton, QWidget)
+    QCheckBox, QDoubleSpinBox, QFrame, QHBoxLayout,
+    QLabel, QLayout, QListWidget, QListWidgetItem,
+    QMainWindow, QPushButton, QSizePolicy, QSpinBox,
+    QStackedWidget, QToolButton, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
         self.listOccurencesL.setAutoScroll(False)
         self.listOccurencesL.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.listOccurencesL.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
-        self.listOccurencesL.setItemAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.listOccurencesL.setItemAlignment(Qt.AlignmentFlag.AlignHCenter)
         self.stackedWidget.addWidget(self.Main)
         self.Schedule = QWidget()
         self.Schedule.setObjectName(u"Schedule")
@@ -188,66 +188,26 @@ class Ui_MainWindow(object):
         self.btnDelete.setGeometry(QRect(10, 70, 190, 50))
         self.btnDelete.setMinimumSize(QSize(0, 50))
         self.btnDelete.setFont(font2)
-        self.frame_2 = QFrame(self.Schedule)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setGeometry(QRect(0, 50, 586, 286))
-        self.frame_2.setStyleSheet(u"QToolButton {\n"
+        self.frameParameters = QFrame(self.Schedule)
+        self.frameParameters.setObjectName(u"frameParameters")
+        self.frameParameters.setGeometry(QRect(0, 50, 586, 286))
+        self.frameParameters.setStyleSheet(u"QToolButton {\n"
 "	background-color: rgb(55,55,55);\n"
 "    color: #ffffff; /* Bia\u0142y tekst */\n"
 "    border: 4px solid #3158de;; /* Szara ramka */\n"
 "    border-radius: 10px; /* Zaokr\u0105glone rogi */\n"
 "    padding: 0px; /* Wewn\u0119trzne odst\u0119py */\n"
+"}\n"
+"QLabel{\n"
+" border: 0px solid #3158b3; /* Szara ramka */\n"
+" background: #303030;\n"
 "}")
-        self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
-        self.frameHour = QFrame(self.frame_2)
+        self.frameParameters.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frameParameters.setFrameShadow(QFrame.Shadow.Raised)
+        self.frameHour = QFrame(self.frameParameters)
         self.frameHour.setObjectName(u"frameHour")
         self.frameHour.setGeometry(QRect(190, 5, 391, 141))
-        self.frameHour.setStyleSheet(u"")
-        self.frameHour.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frameHour.setFrameShadow(QFrame.Shadow.Raised)
-        self.lblHour = QLabel(self.frameHour)
-        self.lblHour.setObjectName(u"lblHour")
-        self.lblHour.setGeometry(QRect(30, 20, 151, 21))
-        self.lblHour.setFont(font)
-        self.lblHour.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.lblHour.setAutoFillBackground(False)
-        self.lblHour.setStyleSheet(u"QLabel{\n"
-" border: 0px solid #3158b3; /* Szara ramka */\n"
-"}")
-        self.lblHour.setFrameShape(QFrame.Shape.NoFrame)
-        self.lblHour.setFrameShadow(QFrame.Shadow.Plain)
-        self.lblHour.setLineWidth(0)
-        self.lblHour.setMidLineWidth(0)
-        self.lblHour.setTextFormat(Qt.TextFormat.AutoText)
-        self.lblHour.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.lblMinute = QLabel(self.frameHour)
-        self.lblMinute.setObjectName(u"lblMinute")
-        self.lblMinute.setGeometry(QRect(210, 20, 151, 21))
-        self.lblMinute.setFont(font)
-        self.lblMinute.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.lblMinute.setAutoFillBackground(False)
-        self.lblMinute.setStyleSheet(u"QLabel{\n"
-" border: 0px solid #3158b3; /* Szara ramka */\n"
-"}")
-        self.lblMinute.setFrameShape(QFrame.Shape.NoFrame)
-        self.lblMinute.setFrameShadow(QFrame.Shadow.Plain)
-        self.lblMinute.setLineWidth(0)
-        self.lblMinute.setMidLineWidth(0)
-        self.lblMinute.setTextFormat(Qt.TextFormat.AutoText)
-        self.lblMinute.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.sboxHour = QSpinBox(self.frameHour)
-        self.sboxHour.setObjectName(u"sboxHour")
-        self.sboxHour.setGeometry(QRect(30, 60, 151, 51))
-        font3 = QFont()
-        font3.setFamilies([u"Calibri"])
-        font3.setPointSize(20)
-        font3.setBold(True)
-        self.sboxHour.setFont(font3)
-        self.sboxHour.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.sboxHour.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.sboxHour.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
-        self.sboxHour.setStyleSheet(u"QSpinBox\n"
+        self.frameHour.setStyleSheet(u"QSpinBox\n"
 "{\n"
 "    border: 3px solid #3158de;\n"
 "    padding-right: 8px;\n"
@@ -262,8 +222,6 @@ class Ui_MainWindow(object):
 "{\n"
 "    width:40px;\n"
 "    height: 40px;\n"
-"    right: 2px;\n"
-"    top: 3px;\n"
 "\n"
 "}\n"
 "\n"
@@ -271,110 +229,149 @@ class Ui_MainWindow(object):
 "{\n"
 "    width:40px;\n"
 "    height: 40px;\n"
-"    right: 104px;\n"
-"    bottom: 2 px;\n"
+"}\n"
+"")
+        self.frameHour.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frameHour.setFrameShadow(QFrame.Shadow.Raised)
+        self.lblHour = QLabel(self.frameHour)
+        self.lblHour.setObjectName(u"lblHour")
+        self.lblHour.setGeometry(QRect(20, 50, 81, 41))
+        self.lblHour.setFont(font)
+        self.lblHour.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.lblHour.setAutoFillBackground(False)
+        self.lblHour.setStyleSheet(u"QLabel{\n"
+" border: 0px solid #3158b3; /* Szara ramka */\n"
 "}")
+        self.lblHour.setFrameShape(QFrame.Shape.NoFrame)
+        self.lblHour.setFrameShadow(QFrame.Shadow.Plain)
+        self.lblHour.setLineWidth(0)
+        self.lblHour.setMidLineWidth(0)
+        self.lblHour.setTextFormat(Qt.TextFormat.AutoText)
+        self.lblHour.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lblMinute = QLabel(self.frameHour)
+        self.lblMinute.setObjectName(u"lblMinute")
+        self.lblMinute.setGeometry(QRect(210, 50, 81, 41))
+        self.lblMinute.setFont(font)
+        self.lblMinute.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.lblMinute.setAutoFillBackground(False)
+        self.lblMinute.setStyleSheet(u"QLabel{\n"
+" border: 0px solid #3158b3; /* Szara ramka */\n"
+"}")
+        self.lblMinute.setFrameShape(QFrame.Shape.NoFrame)
+        self.lblMinute.setFrameShadow(QFrame.Shadow.Plain)
+        self.lblMinute.setLineWidth(0)
+        self.lblMinute.setMidLineWidth(0)
+        self.lblMinute.setTextFormat(Qt.TextFormat.AutoText)
+        self.lblMinute.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.sboxHour = QSpinBox(self.frameHour)
+        self.sboxHour.setObjectName(u"sboxHour")
+        self.sboxHour.setGeometry(QRect(10, 10, 181, 121))
+        font3 = QFont()
+        font3.setFamilies([u"Calibri"])
+        font3.setPointSize(20)
+        font3.setBold(True)
+        self.sboxHour.setFont(font3)
+        self.sboxHour.setCursor(QCursor(Qt.CursorShape.BlankCursor))
+        self.sboxHour.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.sboxHour.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.sboxHour.setStyleSheet(u"")
         self.sboxHour.setWrapping(False)
         self.sboxHour.setFrame(False)
-        self.sboxHour.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.sboxHour.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
+        self.sboxHour.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+        self.sboxHour.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.UpDownArrows)
         self.sboxHour.setKeyboardTracking(False)
         self.sboxHour.setProperty("showGroupSeparator", False)
         self.sboxHour.setMaximum(23)
         self.sboxMinute = QSpinBox(self.frameHour)
         self.sboxMinute.setObjectName(u"sboxMinute")
-        self.sboxMinute.setGeometry(QRect(210, 60, 151, 51))
+        self.sboxMinute.setGeometry(QRect(200, 10, 181, 121))
         self.sboxMinute.setFont(font3)
         self.sboxMinute.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.sboxMinute.setStyleSheet(u"QSpinBox\n"
-"{\n"
-"    border: 3px solid #3158de;\n"
-"    padding-right: 5px;\n"
-"    padding-left: 5px;\n"
-"    padding-top: 5px;\n"
-"    padding-bottom: 5px;\n"
-"    border-radius: 5px; \n"
-"	background: #303030;\n"
-"}\n"
-"\n"
-"QSpinBox::up-button\n"
-"{\n"
-"    width:40px;\n"
-"    height: 40px;\n"
-"    right: 2px;\n"
-"    top: 3px;\n"
-"\n"
-"}\n"
-"\n"
-"QSpinBox::down-button\n"
-"{\n"
-"    width:40px;\n"
-"    height: 40px;\n"
-"    right: 104px;\n"
-"    bottom: 2 px;\n"
-"}")
+        self.sboxMinute.setStyleSheet(u"")
         self.sboxMinute.setWrapping(False)
         self.sboxMinute.setFrame(False)
-        self.sboxMinute.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.sboxMinute.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
+        self.sboxMinute.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+        self.sboxMinute.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.UpDownArrows)
         self.sboxMinute.setKeyboardTracking(False)
         self.sboxMinute.setProperty("showGroupSeparator", False)
         self.sboxMinute.setMaximum(59)
-        self.frameActive = QFrame(self.frame_2)
+        self.sboxHour.raise_()
+        self.sboxMinute.raise_()
+        self.lblMinute.raise_()
+        self.lblHour.raise_()
+        self.frameActive = QFrame(self.frameParameters)
         self.frameActive.setObjectName(u"frameActive")
-        self.frameActive.setGeometry(QRect(5, 5, 181, 141))
+        self.frameActive.setGeometry(QRect(5, 5, 181, 276))
         self.frameActive.setStyleSheet(u"")
         self.frameActive.setFrameShape(QFrame.Shape.StyledPanel)
         self.frameActive.setFrameShadow(QFrame.Shadow.Raised)
-        self.lblActive = QLabel(self.frameActive)
-        self.lblActive.setObjectName(u"lblActive")
-        self.lblActive.setGeometry(QRect(60, 50, 101, 51))
-        self.lblActive.setFont(font)
-        self.lblActive.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.lblActive.setAutoFillBackground(False)
-        self.lblActive.setStyleSheet(u"QLabel{\n"
-" border: 0px solid #3158b3; /* Szara ramka */\n"
-"}")
-        self.lblActive.setFrameShape(QFrame.Shape.NoFrame)
-        self.lblActive.setFrameShadow(QFrame.Shadow.Plain)
-        self.lblActive.setLineWidth(0)
-        self.lblActive.setMidLineWidth(0)
-        self.lblActive.setTextFormat(Qt.TextFormat.AutoText)
-        self.lblActive.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.btnActive = QToolButton(self.frameActive)
-        self.btnActive.setObjectName(u"btnActive")
-        self.btnActive.setGeometry(QRect(10, 50, 51, 51))
-        font4 = QFont()
-        font4.setPointSize(20)
-        font4.setBold(True)
-        self.btnActive.setFont(font4)
-        self.btnActive.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.btnActive.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.btnActive.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
-        self.btnActive.setStyleSheet(u"QToolButton {\n"
-"	background-color: rgb(25, 25, 25);\n"
-"    border: 4px solid #3158de;; /* Szara ramka */\n"
-"    border-radius: 5px; /* Zaokr\u0105glone rogi */\n"
-"    padding: 5px; /* Wewn\u0119trzne odst\u0119py */\n"
+        self.cboxActive = QCheckBox(self.frameActive)
+        self.cboxActive.setObjectName(u"cboxActive")
+        self.cboxActive.setGeometry(QRect(30, 120, 131, 51))
+        self.cboxActive.setFont(font2)
+        self.cboxActive.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.cboxActive.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.cboxActive.setStyleSheet(u"QCheckBox::indicator {\n"
+"    width: 40px;\n"
+"    height: 40px;\n"
+"	border: 4px solid #3158de;\n"
+"    border-radius: 10px; \n"
 "}\n"
+"\n"
+"QCheckBox::indicator:checked {\n"
+"    background-color: #6363fc;\n"
+" \n"
+"}\n"
+"\n"
+"QCheckBox::indicator:unchecked {\n"
+"    background-color: #303030;\n"
+"\n"
+"}\n"
+"\n"
+"QCheckBox{\n"
+"background-color: #252525;\n"
+"}\n"
+"\n"
+"\n"
+"/*\n"
+"           QCheckBox::indicator {\n"
+"                width: 40px;\n"
+"                height: 40px;\n"
+"border: 4px solid #3158de;\n"
+"background-color: #202020;\n"
+"    border-radius: 10px; \n"
+"            }\n"
+"           QCheckBox::indicator :checked{\n"
+"                width: 40px;\n"
+"                height: 40px;\n"
+"border: 4px solid #3158de;\n"
+"background-color: #202020;\n"
+"    border-radius: 10px; \n"
+"            }\n"
+"     QCheckBox::indicator :unchecked{\n"
+"                width: 40px;\n"
+"                height: 40px;\n"
+"border: 4px solid #3158de;\n"
+"background-color: #505050;\n"
+"    border-radius: 10px; \n"
+""
+                        "            }*/\n"
 "")
-        self.btnActive.setCheckable(True)
-        self.btnActive.setChecked(True)
-        self.frameInterval = QFrame(self.frame_2)
+        self.cboxActive.setCheckable(True)
+        self.cboxActive.setChecked(False)
+        self.frameInterval = QFrame(self.frameParameters)
         self.frameInterval.setObjectName(u"frameInterval")
-        self.frameInterval.setGeometry(QRect(5, 150, 576, 131))
+        self.frameInterval.setGeometry(QRect(190, 150, 391, 131))
         self.frameInterval.setStyleSheet(u"")
         self.frameInterval.setFrameShape(QFrame.Shape.StyledPanel)
         self.frameInterval.setFrameShadow(QFrame.Shadow.Raised)
         self.lblInterval = QLabel(self.frameInterval)
         self.lblInterval.setObjectName(u"lblInterval")
-        self.lblInterval.setGeometry(QRect(10, 20, 381, 91))
+        self.lblInterval.setGeometry(QRect(20, 20, 261, 91))
         self.lblInterval.setFont(font)
         self.lblInterval.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.lblInterval.setAutoFillBackground(False)
-        self.lblInterval.setStyleSheet(u"QLabel{\n"
-" border: 0px solid #3158b3; /* Szara ramka */\n"
-"}")
+        self.lblInterval.setStyleSheet(u"")
         self.lblInterval.setFrameShape(QFrame.Shape.NoFrame)
         self.lblInterval.setFrameShadow(QFrame.Shadow.Plain)
         self.lblInterval.setLineWidth(0)
@@ -384,7 +381,7 @@ class Ui_MainWindow(object):
         self.lblInterval.setWordWrap(True)
         self.sboxInterval = QDoubleSpinBox(self.frameInterval)
         self.sboxInterval.setObjectName(u"sboxInterval")
-        self.sboxInterval.setGeometry(QRect(440, 10, 101, 101))
+        self.sboxInterval.setGeometry(QRect(10, 10, 371, 111))
         self.sboxInterval.setFont(font3)
         self.sboxInterval.setCursor(QCursor(Qt.CursorShape.BlankCursor))
         self.sboxInterval.setFocusPolicy(Qt.FocusPolicy.NoFocus)
@@ -414,27 +411,80 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.sboxInterval.setFrame(False)
-        self.sboxInterval.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
-        self.sboxInterval.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.PlusMinus)
+        self.sboxInterval.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+        self.sboxInterval.setButtonSymbols(QAbstractSpinBox.ButtonSymbols.UpDownArrows)
         self.sboxInterval.setKeyboardTracking(False)
         self.sboxInterval.setDecimals(1)
         self.sboxInterval.setMinimum(0.500000000000000)
         self.sboxInterval.setMaximum(2.000000000000000)
         self.sboxInterval.setSingleStep(0.500000000000000)
+        self.sboxInterval.raise_()
+        self.lblInterval.raise_()
         self.stackedWidget.addWidget(self.Schedule)
         self.Settings = QWidget()
         self.Settings.setObjectName(u"Settings")
-        self.label_4 = QLabel(self.Settings)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(500, 270, 49, 16))
-        self.btnNext_2 = QPushButton(self.Settings)
-        self.btnNext_2.setObjectName(u"btnNext_2")
-        self.btnNext_2.setGeometry(QRect(40, 30, 190, 50))
-        self.btnNext_2.setMinimumSize(QSize(0, 50))
-        self.btnNext_2.setFont(font2)
-        self.btnNext_2.setStyleSheet(u"")
-        self.btnNext_2.setCheckable(True)
-        self.btnNext_2.setChecked(True)
+        self.btnWeekendMode = QPushButton(self.Settings)
+        self.btnWeekendMode.setObjectName(u"btnWeekendMode")
+        self.btnWeekendMode.setGeometry(QRect(300, 310, 201, 61))
+        self.btnWeekendMode.setMinimumSize(QSize(0, 50))
+        self.btnWeekendMode.setFont(font2)
+        self.btnWeekendMode.setStyleSheet(u"")
+        self.btnWeekendMode.setCheckable(True)
+        self.btnWeekendMode.setChecked(True)
+        self.btnStartBell = QPushButton(self.Settings)
+        self.btnStartBell.setObjectName(u"btnStartBell")
+        self.btnStartBell.setGeometry(QRect(300, 230, 201, 61))
+        self.btnStartBell.setMinimumSize(QSize(0, 50))
+        self.btnStartBell.setFont(font2)
+        self.btnStartPrebell = QPushButton(self.Settings)
+        self.btnStartPrebell.setObjectName(u"btnStartPrebell")
+        self.btnStartPrebell.setGeometry(QRect(300, 150, 201, 61))
+        self.btnStartPrebell.setMinimumSize(QSize(0, 50))
+        self.btnStartPrebell.setFont(font2)
+        self.btnStartAlarm = QPushButton(self.Settings)
+        self.btnStartAlarm.setObjectName(u"btnStartAlarm")
+        self.btnStartAlarm.setGeometry(QRect(260, 20, 281, 101))
+        self.btnStartAlarm.setMinimumSize(QSize(0, 50))
+        self.btnStartAlarm.setFont(font2)
+        self.btnStartAlarm.setStyleSheet(u"QPushButton{\n"
+"background-color: #ff3300\n"
+"}")
+        self.lblBellFileName = QLabel(self.Settings)
+        self.lblBellFileName.setObjectName(u"lblBellFileName")
+        self.lblBellFileName.setGeometry(QRect(550, 230, 201, 61))
+        self.lblBellFileName.setFont(font)
+        self.lblBellFileName.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.lblBellFileName.setAutoFillBackground(False)
+        self.lblBellFileName.setFrameShape(QFrame.Shape.NoFrame)
+        self.lblBellFileName.setFrameShadow(QFrame.Shadow.Plain)
+        self.lblBellFileName.setLineWidth(0)
+        self.lblBellFileName.setMidLineWidth(0)
+        self.lblBellFileName.setTextFormat(Qt.TextFormat.AutoText)
+        self.lblBellFileName.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lblPrebellFileName = QLabel(self.Settings)
+        self.lblPrebellFileName.setObjectName(u"lblPrebellFileName")
+        self.lblPrebellFileName.setGeometry(QRect(550, 150, 201, 61))
+        self.lblPrebellFileName.setFont(font)
+        self.lblPrebellFileName.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.lblPrebellFileName.setAutoFillBackground(False)
+        self.lblPrebellFileName.setFrameShape(QFrame.Shape.NoFrame)
+        self.lblPrebellFileName.setFrameShadow(QFrame.Shadow.Plain)
+        self.lblPrebellFileName.setLineWidth(0)
+        self.lblPrebellFileName.setMidLineWidth(0)
+        self.lblPrebellFileName.setTextFormat(Qt.TextFormat.AutoText)
+        self.lblPrebellFileName.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lblAlarmFileName = QLabel(self.Settings)
+        self.lblAlarmFileName.setObjectName(u"lblAlarmFileName")
+        self.lblAlarmFileName.setGeometry(QRect(540, 40, 201, 61))
+        self.lblAlarmFileName.setFont(font)
+        self.lblAlarmFileName.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.lblAlarmFileName.setAutoFillBackground(False)
+        self.lblAlarmFileName.setFrameShape(QFrame.Shape.NoFrame)
+        self.lblAlarmFileName.setFrameShadow(QFrame.Shadow.Plain)
+        self.lblAlarmFileName.setLineWidth(0)
+        self.lblAlarmFileName.setMidLineWidth(0)
+        self.lblAlarmFileName.setTextFormat(Qt.TextFormat.AutoText)
+        self.lblAlarmFileName.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.stackedWidget.addWidget(self.Settings)
         self.Clock = QWidget()
         self.Clock.setObjectName(u"Clock")
@@ -442,52 +492,52 @@ class Ui_MainWindow(object):
         self.lblClock = QLabel(self.Clock)
         self.lblClock.setObjectName(u"lblClock")
         self.lblClock.setGeometry(QRect(0, 60, 801, 191))
-        font5 = QFont()
-        font5.setPointSize(100)
-        font5.setWeight(QFont.Medium)
-        font5.setStyleStrategy(QFont.PreferDefault)
-        font5.setHintingPreference(QFont.PreferDefaultHinting)
-        self.lblClock.setFont(font5)
+        font4 = QFont()
+        font4.setPointSize(100)
+        font4.setWeight(QFont.Medium)
+        font4.setStyleStrategy(QFont.PreferDefault)
+        font4.setHintingPreference(QFont.PreferDefaultHinting)
+        self.lblClock.setFont(font4)
         self.lblClock.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.btnPlusHour_2 = QToolButton(self.Clock)
-        self.btnPlusHour_2.setObjectName(u"btnPlusHour_2")
-        self.btnPlusHour_2.setGeometry(QRect(250, 50, 111, 41))
-        self.btnPlusHour_2.setFont(font)
-        self.btnPlusHour_2.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.btnPlusHour_2.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.btnPlusHour_2.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
-        self.btnPlusHour_3 = QToolButton(self.Clock)
-        self.btnPlusHour_3.setObjectName(u"btnPlusHour_3")
-        self.btnPlusHour_3.setGeometry(QRect(250, 240, 111, 41))
-        self.btnPlusHour_3.setFont(font)
-        self.btnPlusHour_3.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.btnPlusHour_3.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.btnPlusHour_3.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
-        self.btnPlusHour_4 = QToolButton(self.Clock)
-        self.btnPlusHour_4.setObjectName(u"btnPlusHour_4")
-        self.btnPlusHour_4.setGeometry(QRect(440, 50, 111, 41))
-        self.btnPlusHour_4.setFont(font)
-        self.btnPlusHour_4.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.btnPlusHour_4.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.btnPlusHour_4.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
-        self.btnPlusHour_4.setCheckable(False)
-        self.btnPlusHour_4.setChecked(False)
-        self.btnPlusHour_4.setPopupMode(QToolButton.ToolButtonPopupMode.DelayedPopup)
-        self.btnPlusHour_4.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextOnly)
-        self.btnPlusHour_4.setAutoRaise(False)
-        self.btnPlusHour_4.setArrowType(Qt.ArrowType.NoArrow)
-        self.btnPlusHour_5 = QToolButton(self.Clock)
-        self.btnPlusHour_5.setObjectName(u"btnPlusHour_5")
-        self.btnPlusHour_5.setGeometry(QRect(440, 240, 111, 41))
-        self.btnPlusHour_5.setFont(font)
-        self.btnPlusHour_5.setCursor(QCursor(Qt.CursorShape.BlankCursor))
-        self.btnPlusHour_5.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        self.btnPlusHour_5.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
-        self.btnClock_2 = QPushButton(self.Clock)
-        self.btnClock_2.setObjectName(u"btnClock_2")
-        self.btnClock_2.setGeometry(QRect(305, 350, 190, 50))
-        self.btnClock_2.setMinimumSize(QSize(0, 50))
-        self.btnClock_2.setFont(font2)
+        self.btnPlusHour = QToolButton(self.Clock)
+        self.btnPlusHour.setObjectName(u"btnPlusHour")
+        self.btnPlusHour.setGeometry(QRect(250, 50, 111, 41))
+        self.btnPlusHour.setFont(font)
+        self.btnPlusHour.setCursor(QCursor(Qt.CursorShape.BlankCursor))
+        self.btnPlusHour.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.btnPlusHour.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.btnMinusHour = QToolButton(self.Clock)
+        self.btnMinusHour.setObjectName(u"btnMinusHour")
+        self.btnMinusHour.setGeometry(QRect(250, 240, 111, 41))
+        self.btnMinusHour.setFont(font)
+        self.btnMinusHour.setCursor(QCursor(Qt.CursorShape.BlankCursor))
+        self.btnMinusHour.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.btnMinusHour.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.btnPlusMinute = QToolButton(self.Clock)
+        self.btnPlusMinute.setObjectName(u"btnPlusMinute")
+        self.btnPlusMinute.setGeometry(QRect(440, 50, 111, 41))
+        self.btnPlusMinute.setFont(font)
+        self.btnPlusMinute.setCursor(QCursor(Qt.CursorShape.BlankCursor))
+        self.btnPlusMinute.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.btnPlusMinute.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.btnPlusMinute.setCheckable(False)
+        self.btnPlusMinute.setChecked(False)
+        self.btnPlusMinute.setPopupMode(QToolButton.ToolButtonPopupMode.DelayedPopup)
+        self.btnPlusMinute.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.btnPlusMinute.setAutoRaise(False)
+        self.btnPlusMinute.setArrowType(Qt.ArrowType.NoArrow)
+        self.btnMinusMinute = QToolButton(self.Clock)
+        self.btnMinusMinute.setObjectName(u"btnMinusMinute")
+        self.btnMinusMinute.setGeometry(QRect(440, 240, 111, 41))
+        self.btnMinusMinute.setFont(font)
+        self.btnMinusMinute.setCursor(QCursor(Qt.CursorShape.BlankCursor))
+        self.btnMinusMinute.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.btnMinusMinute.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.btnSaveClock = QPushButton(self.Clock)
+        self.btnSaveClock.setObjectName(u"btnSaveClock")
+        self.btnSaveClock.setGeometry(QRect(305, 350, 190, 50))
+        self.btnSaveClock.setMinimumSize(QSize(0, 50))
+        self.btnSaveClock.setFont(font2)
         self.stackedWidget.addWidget(self.Clock)
         self.layoutWidget = QWidget(self.centralwidget)
         self.layoutWidget.setObjectName(u"layoutWidget")
@@ -535,7 +585,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.gbtnScreens.idClicked.connect(self.stackedWidget.setCurrentIndex)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -552,18 +602,27 @@ class Ui_MainWindow(object):
         self.btnDelete.setText(QCoreApplication.translate("MainWindow", u"Usu\u0144 dzwonek", None))
         self.lblHour.setText(QCoreApplication.translate("MainWindow", u"Godzina:", None))
         self.lblMinute.setText(QCoreApplication.translate("MainWindow", u"Minuta:", None))
-        self.lblActive.setText(QCoreApplication.translate("MainWindow", u"Aktywny", None))
-        self.btnActive.setText(QCoreApplication.translate("MainWindow", u"X", None))
+        self.cboxActive.setText(QCoreApplication.translate("MainWindow", u"Aktywny", None))
         self.lblInterval.setText(QCoreApplication.translate("MainWindow", u"Interwa\u0142 mi\u0119dzy dzwonkiem \n"
 " a przeddzwonkiem:", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"settings", None))
-        self.btnNext_2.setText(QCoreApplication.translate("MainWindow", u"Tryb weekendowy", None))
+        self.btnWeekendMode.setText(QCoreApplication.translate("MainWindow", u"Prze\u0142\u0105cz\n"
+"tryb weekendowy", None))
+        self.btnStartBell.setText(QCoreApplication.translate("MainWindow", u"Uruchom dzwonek", None))
+        self.btnStartPrebell.setText(QCoreApplication.translate("MainWindow", u"Uruchom \n"
+" przeddzwonek", None))
+        self.btnStartAlarm.setText(QCoreApplication.translate("MainWindow", u"Uruchom alarm", None))
+        self.lblBellFileName.setText(QCoreApplication.translate("MainWindow", u"Dzwonek:\n"
+"", None))
+        self.lblPrebellFileName.setText(QCoreApplication.translate("MainWindow", u"Przedzwonek:\n"
+"", None))
+        self.lblAlarmFileName.setText(QCoreApplication.translate("MainWindow", u"Alarm:\n"
+"", None))
         self.lblClock.setText(QCoreApplication.translate("MainWindow", u"00:00", None))
-        self.btnPlusHour_2.setText(QCoreApplication.translate("MainWindow", u"+", None))
-        self.btnPlusHour_3.setText(QCoreApplication.translate("MainWindow", u"-", None))
-        self.btnPlusHour_4.setText(QCoreApplication.translate("MainWindow", u"+", None))
-        self.btnPlusHour_5.setText(QCoreApplication.translate("MainWindow", u"-", None))
-        self.btnClock_2.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.btnPlusHour.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.btnMinusHour.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.btnPlusMinute.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.btnMinusMinute.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.btnSaveClock.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.btnMain.setText(QCoreApplication.translate("MainWindow", u"Ekran g\u0142\u00f3wny", None))
         self.btnSchedule.setText(QCoreApplication.translate("MainWindow", u"Harmonogram", None))
         self.btnSettings.setText(QCoreApplication.translate("MainWindow", u"Ustawienia", None))

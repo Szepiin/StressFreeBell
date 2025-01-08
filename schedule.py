@@ -28,11 +28,11 @@ class scheduleHandling:
 
         self._privete_scheduleLocation = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Files/schedule.json")
 
-        self._private_loadScheduleFromJson()
-        self._private_checkSchedule()
+        self._loadScheduleFromJson()
+        self.checkSchedule()
 
 
-    def _private_checkSchedule(self):
+    def checkSchedule(self):
         currentTime = datetime.now().strftime("%H:%M")
        
         if self.noWeekend and datetime.now().weekday() >= 5:
@@ -58,7 +58,7 @@ class scheduleHandling:
                 if prevBellTimeStrg < currentTime < bellTimeStrg:
                     self.nextOccurrence = bellTimeStrg
 
-    def _private_loadScheduleFromJson(self):
+    def _loadScheduleFromJson(self):
         if os.path.exists(self._privete_scheduleLocation):
             with open(self._privete_scheduleLocation, 'r') as f:
                 dataToRead = json.load(f)
