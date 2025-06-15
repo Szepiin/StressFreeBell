@@ -15,7 +15,7 @@ class scheduleHandling:
         self.nextOccurrence = None
         
         self.timeTo = {
-            "turnOnAmp": False,
+            "turnAmpOn": False,
             "playBell": False,
             "playPrebell": False,
             "turnAmpOff": False
@@ -55,8 +55,11 @@ class scheduleHandling:
                 prevBellTimeStrg = self.data["bellSchedule"][index-1] if index >=1 else '00:00'
                 bellTimeStrg = self.data["bellSchedule"][index]
 
-                if prevBellTimeStrg < currentTime < bellTimeStrg:
-                    self.nextOccurrence = bellTimeStrg
+        future_times = [t for t in self.data["bellSchedule"] if t > currentTime]
+        if future_times:
+            self.nextOccurrence = min(future_times)
+        else:
+            self.nextOccurrence = min(self.data["bellSchedule"])
 
     def _loadScheduleFromJson(self):
         if os.path.exists(self._privete_scheduleLocation):

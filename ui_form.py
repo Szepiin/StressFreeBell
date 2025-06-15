@@ -16,10 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication, QButtonGroup,
-    QCheckBox, QDoubleSpinBox, QFrame, QHBoxLayout,
-    QLabel, QLayout, QListWidget, QListWidgetItem,
-    QMainWindow, QPushButton, QSizePolicy, QSpinBox,
-    QStackedWidget, QToolButton, QWidget)
+    QCheckBox, QDoubleSpinBox, QFrame, QLabel,
+    QListWidget, QListWidgetItem, QMainWindow, QPushButton,
+    QSizePolicy, QSpinBox, QStackedWidget, QToolButton,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -73,7 +73,7 @@ class Ui_MainWindow(object):
 "}")
         self.lblNextOccurence = QLabel(self.Main)
         self.lblNextOccurence.setObjectName(u"lblNextOccurence")
-        self.lblNextOccurence.setGeometry(QRect(9, 5, 781, 41))
+        self.lblNextOccurence.setGeometry(QRect(10, 5, 780, 41))
         font = QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
         self.lblNextOccurence.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.listOccurencesR = QListWidget(self.Main)
         self.listOccurencesR.setObjectName(u"listOccurencesR")
-        self.listOccurencesR.setGeometry(QRect(405, 50, 386, 351))
+        self.listOccurencesR.setGeometry(QRect(401, 50, 390, 351))
         font1 = QFont()
         font1.setFamilies([u"Calibri"])
         font1.setPointSize(13)
@@ -97,6 +97,14 @@ class Ui_MainWindow(object):
         self.listOccurencesR.viewport().setProperty("cursor", QCursor(Qt.CursorShape.BlankCursor))
         self.listOccurencesR.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.listOccurencesR.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.listOccurencesR.setStyleSheet(u"QListWidget{\n"
+"text-align: center;}\n"
+"\n"
+"QListWidget::item {\n"
+"    text-align: center;          /* Wy\u015brodkowanie tekstu */\n"
+"    padding: 5px;               /* Dodanie odst\u0119p\u00f3w wewn\u0119trznych */\n"
+"\n"
+"}")
         self.listOccurencesR.setFrameShape(QFrame.Shape.Box)
         self.listOccurencesR.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.listOccurencesR.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -106,11 +114,19 @@ class Ui_MainWindow(object):
         self.listOccurencesR.setItemAlignment(Qt.AlignmentFlag.AlignCenter)
         self.listOccurencesL = QListWidget(self.Main)
         self.listOccurencesL.setObjectName(u"listOccurencesL")
-        self.listOccurencesL.setGeometry(QRect(10, 50, 386, 351))
+        self.listOccurencesL.setGeometry(QRect(9, 50, 390, 351))
         self.listOccurencesL.setFont(font1)
         self.listOccurencesL.viewport().setProperty("cursor", QCursor(Qt.CursorShape.BlankCursor))
         self.listOccurencesL.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.listOccurencesL.setContextMenuPolicy(Qt.ContextMenuPolicy.NoContextMenu)
+        self.listOccurencesL.setStyleSheet(u"QListWidget{\n"
+"text-align: center;}\n"
+"\n"
+"QListWidget::item {\n"
+"    text-align: center;          /* Wy\u015brodkowanie tekstu */\n"
+"    padding: 5px;               /* Dodanie odst\u0119p\u00f3w wewn\u0119trznych */\n"
+"\n"
+"}")
         self.listOccurencesL.setFrameShape(QFrame.Shape.Box)
         self.listOccurencesL.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.listOccurencesL.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -118,6 +134,15 @@ class Ui_MainWindow(object):
         self.listOccurencesL.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.listOccurencesL.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
         self.listOccurencesL.setItemAlignment(Qt.AlignmentFlag.AlignHCenter)
+        self.btnClose = QPushButton(self.Main)
+        self.btnClose.setObjectName(u"btnClose")
+        self.btnClose.setGeometry(QRect(580, 300, 195, 60))
+        self.btnClose.setMinimumSize(QSize(0, 60))
+        font2 = QFont()
+        font2.setFamilies([u"Calibri"])
+        font2.setPointSize(14)
+        font2.setBold(True)
+        self.btnClose.setFont(font2)
         self.stackedWidget.addWidget(self.Main)
         self.Schedule = QWidget()
         self.Schedule.setObjectName(u"Schedule")
@@ -153,10 +178,6 @@ class Ui_MainWindow(object):
         self.btnPrev.setObjectName(u"btnPrev")
         self.btnPrev.setGeometry(QRect(10, 10, 190, 50))
         self.btnPrev.setMinimumSize(QSize(0, 50))
-        font2 = QFont()
-        font2.setFamilies([u"Calibri"])
-        font2.setPointSize(14)
-        font2.setBold(True)
         self.btnPrev.setFont(font2)
         self.btnNext = QPushButton(self.frameBellIndex)
         self.btnNext.setObjectName(u"btnNext")
@@ -425,7 +446,7 @@ class Ui_MainWindow(object):
         self.Settings.setObjectName(u"Settings")
         self.btnWeekendMode = QPushButton(self.Settings)
         self.btnWeekendMode.setObjectName(u"btnWeekendMode")
-        self.btnWeekendMode.setGeometry(QRect(300, 310, 201, 61))
+        self.btnWeekendMode.setGeometry(QRect(100, 310, 201, 61))
         self.btnWeekendMode.setMinimumSize(QSize(0, 50))
         self.btnWeekendMode.setFont(font2)
         self.btnWeekendMode.setStyleSheet(u"")
@@ -433,17 +454,17 @@ class Ui_MainWindow(object):
         self.btnWeekendMode.setChecked(True)
         self.btnStartBell = QPushButton(self.Settings)
         self.btnStartBell.setObjectName(u"btnStartBell")
-        self.btnStartBell.setGeometry(QRect(300, 230, 201, 61))
+        self.btnStartBell.setGeometry(QRect(100, 230, 201, 61))
         self.btnStartBell.setMinimumSize(QSize(0, 50))
         self.btnStartBell.setFont(font2)
         self.btnStartPrebell = QPushButton(self.Settings)
         self.btnStartPrebell.setObjectName(u"btnStartPrebell")
-        self.btnStartPrebell.setGeometry(QRect(300, 150, 201, 61))
+        self.btnStartPrebell.setGeometry(QRect(100, 150, 201, 61))
         self.btnStartPrebell.setMinimumSize(QSize(0, 50))
         self.btnStartPrebell.setFont(font2)
         self.btnStartAlarm = QPushButton(self.Settings)
         self.btnStartAlarm.setObjectName(u"btnStartAlarm")
-        self.btnStartAlarm.setGeometry(QRect(260, 20, 281, 101))
+        self.btnStartAlarm.setGeometry(QRect(100, 20, 201, 101))
         self.btnStartAlarm.setMinimumSize(QSize(0, 50))
         self.btnStartAlarm.setFont(font2)
         self.btnStartAlarm.setStyleSheet(u"QPushButton{\n"
@@ -451,7 +472,7 @@ class Ui_MainWindow(object):
 "}")
         self.lblBellFileName = QLabel(self.Settings)
         self.lblBellFileName.setObjectName(u"lblBellFileName")
-        self.lblBellFileName.setGeometry(QRect(550, 230, 201, 61))
+        self.lblBellFileName.setGeometry(QRect(330, 230, 371, 61))
         self.lblBellFileName.setFont(font)
         self.lblBellFileName.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.lblBellFileName.setAutoFillBackground(False)
@@ -460,10 +481,10 @@ class Ui_MainWindow(object):
         self.lblBellFileName.setLineWidth(0)
         self.lblBellFileName.setMidLineWidth(0)
         self.lblBellFileName.setTextFormat(Qt.TextFormat.AutoText)
-        self.lblBellFileName.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lblBellFileName.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
         self.lblPrebellFileName = QLabel(self.Settings)
         self.lblPrebellFileName.setObjectName(u"lblPrebellFileName")
-        self.lblPrebellFileName.setGeometry(QRect(550, 150, 201, 61))
+        self.lblPrebellFileName.setGeometry(QRect(330, 150, 371, 61))
         self.lblPrebellFileName.setFont(font)
         self.lblPrebellFileName.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.lblPrebellFileName.setAutoFillBackground(False)
@@ -472,10 +493,10 @@ class Ui_MainWindow(object):
         self.lblPrebellFileName.setLineWidth(0)
         self.lblPrebellFileName.setMidLineWidth(0)
         self.lblPrebellFileName.setTextFormat(Qt.TextFormat.AutoText)
-        self.lblPrebellFileName.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lblPrebellFileName.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
         self.lblAlarmFileName = QLabel(self.Settings)
         self.lblAlarmFileName.setObjectName(u"lblAlarmFileName")
-        self.lblAlarmFileName.setGeometry(QRect(540, 40, 201, 61))
+        self.lblAlarmFileName.setGeometry(QRect(330, 40, 371, 61))
         self.lblAlarmFileName.setFont(font)
         self.lblAlarmFileName.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.lblAlarmFileName.setAutoFillBackground(False)
@@ -484,7 +505,7 @@ class Ui_MainWindow(object):
         self.lblAlarmFileName.setLineWidth(0)
         self.lblAlarmFileName.setMidLineWidth(0)
         self.lblAlarmFileName.setTextFormat(Qt.TextFormat.AutoText)
-        self.lblAlarmFileName.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.lblAlarmFileName.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
         self.stackedWidget.addWidget(self.Settings)
         self.Clock = QWidget()
         self.Clock.setObjectName(u"Clock")
@@ -539,53 +560,42 @@ class Ui_MainWindow(object):
         self.btnSaveClock.setMinimumSize(QSize(0, 50))
         self.btnSaveClock.setFont(font2)
         self.stackedWidget.addWidget(self.Clock)
-        self.layoutWidget = QWidget(self.centralwidget)
-        self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(10, 10, 781, 61))
-        self.horizontalLayout = QHBoxLayout(self.layoutWidget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.btnMain = QPushButton(self.layoutWidget)
+        self.btnClock = QPushButton(self.centralwidget)
         self.gbtnScreens = QButtonGroup(MainWindow)
         self.gbtnScreens.setObjectName(u"gbtnScreens")
-        self.gbtnScreens.addButton(self.btnMain)
-        self.btnMain.setObjectName(u"btnMain")
-        self.btnMain.setMinimumSize(QSize(0, 50))
-        self.btnMain.setFont(font2)
-
-        self.horizontalLayout.addWidget(self.btnMain)
-
-        self.btnSchedule = QPushButton(self.layoutWidget)
-        self.gbtnScreens.addButton(self.btnSchedule)
-        self.btnSchedule.setObjectName(u"btnSchedule")
-        self.btnSchedule.setMinimumSize(QSize(0, 50))
-        self.btnSchedule.setFont(font2)
-
-        self.horizontalLayout.addWidget(self.btnSchedule)
-
-        self.btnSettings = QPushButton(self.layoutWidget)
-        self.gbtnScreens.addButton(self.btnSettings)
-        self.btnSettings.setObjectName(u"btnSettings")
-        self.btnSettings.setMinimumSize(QSize(0, 50))
-        self.btnSettings.setFont(font2)
-
-        self.horizontalLayout.addWidget(self.btnSettings)
-
-        self.btnClock = QPushButton(self.layoutWidget)
         self.gbtnScreens.addButton(self.btnClock)
         self.btnClock.setObjectName(u"btnClock")
-        self.btnClock.setMinimumSize(QSize(0, 50))
+        self.btnClock.setGeometry(QRect(601, 5, 195, 60))
+        self.btnClock.setMinimumSize(QSize(0, 60))
         self.btnClock.setFont(font2)
-
-        self.horizontalLayout.addWidget(self.btnClock)
-
+        self.btnSchedule = QPushButton(self.centralwidget)
+        self.gbtnScreens.addButton(self.btnSchedule)
+        self.btnSchedule.setObjectName(u"btnSchedule")
+        self.btnSchedule.setGeometry(QRect(402, 5, 195, 60))
+        self.btnSchedule.setMinimumSize(QSize(0, 60))
+        self.btnSchedule.setFont(font2)
+        self.btnSettings = QPushButton(self.centralwidget)
+        self.gbtnScreens.addButton(self.btnSettings)
+        self.btnSettings.setObjectName(u"btnSettings")
+        self.btnSettings.setGeometry(QRect(203, 5, 195, 60))
+        self.btnSettings.setMinimumSize(QSize(0, 60))
+        self.btnSettings.setFont(font2)
+        self.btnMain = QPushButton(self.centralwidget)
+        self.gbtnScreens.addButton(self.btnMain)
+        self.btnMain.setObjectName(u"btnMain")
+        self.btnMain.setGeometry(QRect(4, 5, 195, 60))
+        self.btnMain.setMinimumSize(QSize(0, 60))
+        self.btnMain.setFont(font2)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.btnClock.raise_()
+        self.stackedWidget.raise_()
+        self.btnSchedule.raise_()
+        self.btnSettings.raise_()
+        self.btnMain.raise_()
 
         self.retranslateUi(MainWindow)
-        self.gbtnScreens.idClicked.connect(self.stackedWidget.setCurrentIndex)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -594,6 +604,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.lblNextOccurence.setText(QCoreApplication.translate("MainWindow", u"Brak nast\u0119pnego wyst\u0105pienia", None))
+        self.btnClose.setText(QCoreApplication.translate("MainWindow", u"zamknij", None))
         self.lblScheduleIndex.setText(QCoreApplication.translate("MainWindow", u"Dzwonek", None))
         self.btnPrev.setText(QCoreApplication.translate("MainWindow", u"Poprzedni", None))
         self.btnNext.setText(QCoreApplication.translate("MainWindow", u"Nast\u0119pny", None))
@@ -611,21 +622,18 @@ class Ui_MainWindow(object):
         self.btnStartPrebell.setText(QCoreApplication.translate("MainWindow", u"Uruchom \n"
 " przeddzwonek", None))
         self.btnStartAlarm.setText(QCoreApplication.translate("MainWindow", u"Uruchom alarm", None))
-        self.lblBellFileName.setText(QCoreApplication.translate("MainWindow", u"Dzwonek:\n"
-"", None))
-        self.lblPrebellFileName.setText(QCoreApplication.translate("MainWindow", u"Przedzwonek:\n"
-"", None))
-        self.lblAlarmFileName.setText(QCoreApplication.translate("MainWindow", u"Alarm:\n"
-"", None))
+        self.lblBellFileName.setText(QCoreApplication.translate("MainWindow", u"Dzwonek:", None))
+        self.lblPrebellFileName.setText(QCoreApplication.translate("MainWindow", u"Przedzwonek:", None))
+        self.lblAlarmFileName.setText(QCoreApplication.translate("MainWindow", u"Alarm: ", None))
         self.lblClock.setText(QCoreApplication.translate("MainWindow", u"00:00", None))
         self.btnPlusHour.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.btnMinusHour.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.btnPlusMinute.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.btnMinusMinute.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.btnSaveClock.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
-        self.btnMain.setText(QCoreApplication.translate("MainWindow", u"Ekran g\u0142\u00f3wny", None))
+        self.btnClock.setText(QCoreApplication.translate("MainWindow", u"Zegar", None))
         self.btnSchedule.setText(QCoreApplication.translate("MainWindow", u"Harmonogram", None))
         self.btnSettings.setText(QCoreApplication.translate("MainWindow", u"Ustawienia", None))
-        self.btnClock.setText(QCoreApplication.translate("MainWindow", u"Zegar", None))
+        self.btnMain.setText(QCoreApplication.translate("MainWindow", u"Ekran g\u0142\u00f3wny", None))
     # retranslateUi
 

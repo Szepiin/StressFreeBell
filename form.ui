@@ -79,7 +79,7 @@ QPushButton {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Main">
      <property name="styleSheet">
@@ -93,9 +93,9 @@ QPushButton {
      <widget class="QLabel" name="lblNextOccurence">
       <property name="geometry">
        <rect>
-        <x>9</x>
+        <x>10</x>
         <y>5</y>
-        <width>781</width>
+        <width>780</width>
         <height>41</height>
        </rect>
       </property>
@@ -136,9 +136,9 @@ QPushButton {
      <widget class="QListWidget" name="listOccurencesR">
       <property name="geometry">
        <rect>
-        <x>405</x>
+        <x>401</x>
         <y>50</y>
-        <width>386</width>
+        <width>390</width>
         <height>351</height>
        </rect>
       </property>
@@ -157,6 +157,16 @@ QPushButton {
       </property>
       <property name="contextMenuPolicy">
        <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget{
+text-align: center;}
+
+QListWidget::item {
+    text-align: center;          /* Wyśrodkowanie tekstu */
+    padding: 5px;               /* Dodanie odstępów wewnętrznych */
+
+}</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::Box</enum>
@@ -183,9 +193,9 @@ QPushButton {
      <widget class="QListWidget" name="listOccurencesL">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>9</x>
         <y>50</y>
-        <width>386</width>
+        <width>390</width>
         <height>351</height>
        </rect>
       </property>
@@ -204,6 +214,16 @@ QPushButton {
       </property>
       <property name="contextMenuPolicy">
        <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget{
+text-align: center;}
+
+QListWidget::item {
+    text-align: center;          /* Wyśrodkowanie tekstu */
+    padding: 5px;               /* Dodanie odstępów wewnętrznych */
+
+}</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::Box</enum>
@@ -225,6 +245,32 @@ QPushButton {
       </property>
       <property name="itemAlignment">
        <set>Qt::AlignmentFlag::AlignHCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnClose">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>300</y>
+        <width>195</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>zamknij</string>
       </property>
      </widget>
     </widget>
@@ -971,7 +1017,7 @@ QDoubleSpinBox::down-button
      <widget class="QPushButton" name="btnWeekendMode">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>100</x>
         <y>310</y>
         <width>201</width>
         <height>61</height>
@@ -1007,7 +1053,7 @@ tryb weekendowy</string>
      <widget class="QPushButton" name="btnStartBell">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>100</x>
         <y>230</y>
         <width>201</width>
         <height>61</height>
@@ -1033,7 +1079,7 @@ tryb weekendowy</string>
      <widget class="QPushButton" name="btnStartPrebell">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>100</x>
         <y>150</y>
         <width>201</width>
         <height>61</height>
@@ -1060,9 +1106,9 @@ tryb weekendowy</string>
      <widget class="QPushButton" name="btnStartAlarm">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>100</x>
         <y>20</y>
-        <width>281</width>
+        <width>201</width>
         <height>101</height>
        </rect>
       </property>
@@ -1091,9 +1137,9 @@ background-color: #ff3300
      <widget class="QLabel" name="lblBellFileName">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>330</x>
         <y>230</y>
-        <width>201</width>
+        <width>371</width>
         <height>61</height>
        </rect>
       </property>
@@ -1122,22 +1168,21 @@ background-color: #ff3300
        <number>0</number>
       </property>
       <property name="text">
-       <string>Dzwonek:
-</string>
+       <string>Dzwonek:</string>
       </property>
       <property name="textFormat">
        <enum>Qt::TextFormat::AutoText</enum>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="lblPrebellFileName">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>330</x>
         <y>150</y>
-        <width>201</width>
+        <width>371</width>
         <height>61</height>
        </rect>
       </property>
@@ -1166,22 +1211,21 @@ background-color: #ff3300
        <number>0</number>
       </property>
       <property name="text">
-       <string>Przedzwonek:
-</string>
+       <string>Przedzwonek:</string>
       </property>
       <property name="textFormat">
        <enum>Qt::TextFormat::AutoText</enum>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="lblAlarmFileName">
       <property name="geometry">
        <rect>
-        <x>540</x>
+        <x>330</x>
         <y>40</y>
-        <width>201</width>
+        <width>371</width>
         <height>61</height>
        </rect>
       </property>
@@ -1210,14 +1254,13 @@ background-color: #ff3300
        <number>0</number>
       </property>
       <property name="text">
-       <string>Alarm:
-</string>
+       <string>Alarm: </string>
       </property>
       <property name="textFormat">
        <enum>Qt::TextFormat::AutoText</enum>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
       </property>
      </widget>
     </widget>
@@ -1407,139 +1450,136 @@ background-color: #ff3300
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPushButton" name="btnClock">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>781</width>
-      <height>61</height>
+      <x>601</x>
+      <y>5</y>
+      <width>195</width>
+      <height>60</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
-     </property>
-     <item>
-      <widget class="QPushButton" name="btnMain">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>14</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Ekran główny</string>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">gbtnScreens</string>
-       </attribute>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnSchedule">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>14</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Harmonogram</string>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">gbtnScreens</string>
-       </attribute>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnSettings">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>14</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Ustawienia</string>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">gbtnScreens</string>
-       </attribute>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnClock">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>14</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Zegar</string>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">gbtnScreens</string>
-       </attribute>
-      </widget>
-     </item>
-    </layout>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Zegar</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">gbtnScreens</string>
+    </attribute>
    </widget>
+   <widget class="QPushButton" name="btnSchedule">
+    <property name="geometry">
+     <rect>
+      <x>402</x>
+      <y>5</y>
+      <width>195</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Harmonogram</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">gbtnScreens</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btnSettings">
+    <property name="geometry">
+     <rect>
+      <x>203</x>
+      <y>5</y>
+      <width>195</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ustawienia</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">gbtnScreens</string>
+    </attribute>
+   </widget>
+   <widget class="QPushButton" name="btnMain">
+    <property name="geometry">
+     <rect>
+      <x>4</x>
+      <y>5</y>
+      <width>195</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ekran główny</string>
+    </property>
+    <attribute name="buttonGroup">
+     <string notr="true">gbtnScreens</string>
+    </attribute>
+   </widget>
+   <zorder>btnClock</zorder>
+   <zorder>stackedWidget</zorder>
+   <zorder>btnSchedule</zorder>
+   <zorder>btnSettings</zorder>
+   <zorder>btnMain</zorder>
   </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>gbtnScreens</sender>
-   <signal>idClicked(int)</signal>
-   <receiver>stackedWidget</receiver>
-   <slot>setCurrentIndex(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>changePage(int)</slot>
  </slots>
  <buttongroups>
-  <buttongroup name="gbtnScreens"/>
   <buttongroup name="buttonGroup"/>
+  <buttongroup name="gbtnScreens"/>
  </buttongroups>
 </ui>
